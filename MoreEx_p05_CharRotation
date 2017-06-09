@@ -23,32 +23,33 @@ public class viliTest {
             intNumberString[i] = Integer.parseInt(numberString[i]);
         }
         
-        String result = "";
-        
+                
         for (int i = 0; i< intNumberString.length; i++) {
             if (intNumberString[i] % 2 == 0) {
-                result += doIfEven(intNumberString, charSymbolString, i);
+                charSymbolString[i] = doIfEven(intNumberString, charSymbolString, i);
             } else {
-                result += doIfOdd(intNumberString, charSymbolString, i);
+                charSymbolString[i] = doIfOdd(intNumberString, charSymbolString, i);
             }
         }
-        System.out.println(result);
+        for (int i = 0; i < charSymbolString.length; i++) {
+            System.out.print(charSymbolString[i]);
+        }
     }
 
         
-        static String doIfEven(int[] intNumberString, char[] charSymbolString, int i) {
-            String resultDoIfEven = "";
+        static char doIfEven(int[] intNumberString, char[] charSymbolString, int i) {
+            char resultDoIfEven = '\u0000';
             int resultingNumberFromSubstraction = 0;
             resultingNumberFromSubstraction = charSymbolString[i] - intNumberString[i];
-            resultDoIfEven = String.valueOf((char) resultingNumberFromSubstraction);
+            resultDoIfEven = (char) resultingNumberFromSubstraction;
             return resultDoIfEven;
         }
         
-        static String doIfOdd(int[] intNumberString, char[] charSymbolString, int i) {
-            String resultDoIfOdd = "";
+        static char doIfOdd(int[] intNumberString, char[] charSymbolString, int i) {
+            char resultDoIfOdd = '\u0000';
             int resultingNumberFromAddition = 0;
             resultingNumberFromAddition = intNumberString[i] + charSymbolString[i];
-            resultDoIfOdd = String.valueOf((char) resultingNumberFromAddition);
+            resultDoIfOdd = (char) resultingNumberFromAddition;
             return resultDoIfOdd;
         }
         
