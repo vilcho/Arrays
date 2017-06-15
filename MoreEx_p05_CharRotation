@@ -1,0 +1,58 @@
+
+//import java.text.DecimalFormat;
+import java.util.Scanner;
+
+/**
+ * Created by Vilcho on 1/29/2017.
+ */
+public class viliTest {
+    public static void main(String[] args) {
+        
+        Scanner scanner = new Scanner(System.in);
+       
+        String[] symbolString = scanner.nextLine().split("");
+        String[] numberString = scanner.nextLine().split(" ");
+        
+        char[] charSymbolString = new char[symbolString.length];
+        for (int i = 0; i < charSymbolString.length; i++) {
+            charSymbolString[i] = symbolString[i].charAt(0);
+        }
+        
+        int[] intNumberString = new int[numberString.length];
+        for (int i = 0; i < intNumberString.length; i++) {
+            intNumberString[i] = Integer.parseInt(numberString[i]);
+        }
+        
+                
+        for (int i = 0; i< intNumberString.length; i++) {
+            if (intNumberString[i] % 2 == 0) {
+                charSymbolString[i] = doIfEven(intNumberString, charSymbolString, i);
+            } else {
+                charSymbolString[i] = doIfOdd(intNumberString, charSymbolString, i);
+            }
+        }
+        for (int i = 0; i < charSymbolString.length; i++) {
+            System.out.print(charSymbolString[i]);
+        }
+    }
+
+        
+        static char doIfEven(int[] intNumberString, char[] charSymbolString, int i) {
+            char resultDoIfEven = '\u0000';
+            int resultingNumberFromSubstraction = 0;
+            resultingNumberFromSubstraction = charSymbolString[i] - intNumberString[i];
+            resultDoIfEven = (char) resultingNumberFromSubstraction;
+            return resultDoIfEven;
+        }
+        
+        static char doIfOdd(int[] intNumberString, char[] charSymbolString, int i) {
+            char resultDoIfOdd = '\u0000';
+            int resultingNumberFromAddition = 0;
+            resultingNumberFromAddition = intNumberString[i] + charSymbolString[i];
+            resultDoIfOdd = (char) resultingNumberFromAddition;
+            return resultDoIfOdd;
+        }
+        
+ 
+
+}
